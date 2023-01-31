@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+<style>
+.tabs div.active[data-tab] {
+  color: white;
+  background: #2e3440;
+  border: 1px solid #2e3440;
+}
+.tabs div[data-tab] {
+  background: white;
+  color: #2e3440;
+  display: inline-block;
+  border: 1px solid #6d6e71;
+  border-bottom: none;
+  margin: 0;
+  padding: 5px 20px;
+  border-radius: 5px 5px 0px 0px;
+}
+.tabs div.active:not([data-tab]) {
+  display: block;
+}
+.tabs div:not([data-tab]) {
+  margin: 0;
+  display: none; 
+  background: #2e3440;
+  border: 1px solid #2e3440;
+  color: white;
+  padding: 20px;
+}
+.tabs {
+  margin: 20px 0;
+}
+
+
+</style>
+<!-- 
+The goal of this template to implement data tabs with minimal and readable HTML tree.
+For this, a flat HTML structure is used with jquery/cash selectors.
+CSS styles show/highlight elements marked with "active" class and apply basic coloring.
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.2/cash.min.js"></script>
+
+<!-- wrapper containing all tabs -->
+<div class="tabs w3-top " style="width: 100%; height: 100%">
+  <!-- divs with data-tab attribute are labels -->
+  <div data-tab class="active">Tab 1</div>
+  <div data-tab>Tab 2</div>
+  <!-- other divs are contents -->
+  <div class="active"><iframe style="width: 100%; height: 100%"; src="https://nnillat.github.io/iframebrowser/"></iframe></div>
+  <div><iframe style="width: 100%; height: 100%"; src="https://nnillat.github.io/iframebrowser/"></iframe></div>
+</div>
+
+
+<script>
+$(".tabs div[data-tab]").on("click", function (e) {
+  // clear active classes and set current tab button as active
+  $(this).siblings().removeClass("active");
+  $(this).addClass("active");
+  // activate tab page with the same index as the tab button
+  let tabIndex = $(this).index();
+  $($(this).siblings("div:not([data-tab])")[tabIndex]).addClass("active");
+});
+
+
+</script>
