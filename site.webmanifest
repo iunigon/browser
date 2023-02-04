@@ -1,0 +1,14 @@
+{
+    "name": "UChat",
+    "short_name": "UChat",
+    "icons": [
+        {
+            "src": "/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#e6f5f9",
+    "background_color": "#e6f5f9",
+    "display": "standalone"
+}
